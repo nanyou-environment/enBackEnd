@@ -4,7 +4,10 @@ const config = require('../configs')
 module.exports = {
   context: config.context,
   entry: {
-    main: './src/main.js'
+    main: [
+      'webpack-hot-middleware/client?reload=true',
+      './src/main.js'
+    ]
   },
   output: {
     path: config.distPath,
@@ -21,18 +24,31 @@ module.exports = {
     hot: true
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js?$/,
-        loader: 'babel-loader',
-        include: config.babelInclude,
-        query: {
-          presets: ['es2015']
-        }
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: [
+          'babel-loader',
+          'eslint-loader'
+        ]
+      },
+      {
+        test: /\.js$/,
+        enforce: 'pre',  // 在babel-loader对源码进行编译前进行lint的检查
+        include: config.babelInclude,  // src文件夹下的文件需要被lint
+        use: [{
+          loader: 'eslint-loader',
+          options: {
+            formatter: require('eslint-friendly-formatter')   // 编译后错误报告格式
+          }
+        }]
       }
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"develop"'
