@@ -1,5 +1,7 @@
 const webpack = require('webpack')
 const config = require('../configs')
+// const CleanWebpackPlugin = require('clean-webpack-plugin')
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
   'devtool': 'inline-source-map',
@@ -46,6 +48,13 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        PLANTFORM: JSON.stringify('web'),
+        NODE_ENV: JSON.stringify('development'),
+        HOSTNAME: JSON.stringify('http://localhost:8080'),
+      }
+    }),
     new webpack.HotModuleReplacementPlugin(),
     // new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
@@ -53,6 +62,13 @@ module.exports = {
         NODE_ENV: '"develop"'
       }
     }),
+    //  pro env
+    // new CleanWebpackPlugin(['src'], {
+    //   root: '/', // An absolute path for the root  of webpack.config.js
+    //   verbose: true,// Write logs to console.
+    //   dry: false // Do not delete anything, good for testing.
+    // }),
+    new OpenBrowserPlugin({url: 'http://localhost:8080'})
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
     //     warnings: false
