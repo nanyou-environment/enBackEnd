@@ -11,7 +11,6 @@ const config = require('../configs')
 
 // Initialize the Express App
 const app = new Express()
-// console.log(webpackConfig)
 const compiler = webpack(webpackConfig)
 
 if (process.env.NODE_ENV === 'production') {

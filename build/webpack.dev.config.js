@@ -2,11 +2,14 @@ const webpack = require('webpack')
 const config = require('../configs')
 
 module.exports = {
+  'devtool': 'inline-source-map',
   context: config.context,
   entry: {
     main: [
       'webpack-hot-middleware/client?reload=true',
-      './src/main.js'
+      'webpack/hot/only-dev-server',
+      'react-hot-loader/patch',
+      './src/main.jsx'
     ]
   },
   output: {
@@ -16,17 +19,13 @@ module.exports = {
     pathinfo: true,
     publicPath: config.publicPath
   },
-  devServer: {
-    contentBase: config.publicPath,
-    compress: true,
-    host: '0.0.0.0',
-    port: 9000,
-    hot: true
+  resolve: {
+    extensions: ['.js', '.jsx', '.scss']
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loaders: [
           'babel-loader',
@@ -48,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
+    // new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"develop"'
