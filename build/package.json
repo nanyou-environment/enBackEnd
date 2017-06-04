@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "react-router": "^4.1.1"
+  },
+  "devDependencies": {
+    "history": "^4.6.1",
+    "resolve-pathname": "^2.1.0",
+    "value-equal": "^0.3.0",
+    "warning": "^3.0.0"
+  }
+}

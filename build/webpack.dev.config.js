@@ -62,6 +62,10 @@ module.exports = {
         NODE_ENV: '"develop"'
       }
     }),
+    new webpack.DllReferencePlugin({
+      context: config.context,
+      manifest: require('../vendor-manifest.json'),
+    }),
     //  pro env
     // new CleanWebpackPlugin(['src'], {
     //   root: '/', // An absolute path for the root  of webpack.config.js
