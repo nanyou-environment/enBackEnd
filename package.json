@@ -8,7 +8,10 @@
   "dependencies": {
     "clean-webpack-plugin": "^0.1.16",
     "flux-standard-action": "^1.2.0",
-    "react-router": "^4.1.1",
+    "react-redux": "^5.0.5",
+    "react-router": "^2.5.2",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "redux-ui": "^0.1.1",
     "webpack": "^2.6.1"

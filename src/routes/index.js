@@ -1,15 +1,6 @@
-import App from './../views/App'
-import Login from './Login'
-const basePath = '/'
+if (process.env.NODE_ENV === 'production') {// eslint-disable-line
+  module.exports = require('./routers.prod.js').default
+} else {
+  module.exports = require('./routers.dev.js').default
+}
 
-const route = [
-  {
-    path: basePath,
-    component: App,
-    childRoutes: [
-      Login
-    ]
-  }
-]
-
-export default route

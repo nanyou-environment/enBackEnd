@@ -1,11 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import createBrowserHistory from 'history/createBrowserHistory'
+import { browserHistory } from 'react-router'
 import thunk from 'redux-thunk'
 import api from '../middleware/api'
 import { routerMiddleware } from 'react-router-redux'
 import createReducer from '../reducer'
 
-const browserHistory = createBrowserHistory()
 const router = routerMiddleware(browserHistory)
 
 const enhancer = compose(

@@ -4,8 +4,7 @@ import { Provider } from 'react-redux'// eslint-disable-line
 import { Router } from 'react-router'// eslint-disable-line
 import { syncHistoryWithStore } from 'react-router-redux'
 import isEqual from 'lodash/isEqual'
-import createBrowserHistory from 'history/createBrowserHistory'
-
+import { browserHistory } from 'react-router'
 
 import { AppContainer } from 'react-hot-loader'// eslint-disable-line
 // AppContainer is a necessary wrapper component for HMR
@@ -13,7 +12,6 @@ import createReducer from './reducer'
 import stores from './stores'
 import routes from './routes'
 
-const browserHistory = createBrowserHistory()
 const reducers = createReducer()
 const defaultState = reducers(undefined, { type: '@@null' })
 const store = stores(defaultState)
