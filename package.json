@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "clean-webpack-plugin": "^0.1.16",
+    "redux-ui": "^0.1.1",
     "webpack": "^2.6.1"
   },
   "devDependencies": {
