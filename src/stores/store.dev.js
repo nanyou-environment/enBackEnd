@@ -1,11 +1,12 @@
 import { createStore, applyMiddleware, compose } from 'redux'
+import createBrowserHistory from 'history/createBrowserHistory'
 import thunk from 'redux-thunk'
 import api from '../middleware/api'
-import history from '../history/history'
 import { routerMiddleware } from 'react-router-redux'
-import createReducer from '../reducers'
+import createReducer from '../reducer'
 
-const router = routerMiddleware(history)
+const browserHistory = createBrowserHistory()
+const router = routerMiddleware(browserHistory)
 
 const enhancer = compose(
   // Middlewar
@@ -22,8 +23,8 @@ function configureStore() {
       store.asyncReducers = {}
       if (module.hot) {
         // Enable Webpack hot module replacement for reducers
-        module.hot.accept('../reducers', () => {
-          const nextReducer = require('../reducers').default
+        module.hot.accept('../reducer', () => {
+          const nextReducer = require('../reducer').default
           store.replaceReducer(nextReducer)
         })
       }
@@ -33,12 +34,12 @@ function configureStore() {
   }
 }
 
-const getStore = configureStore()
+const stores = configureStore()
 
-export default getStore
+export default stores
 
 export function injectAsyncReducer(name, asyncReducer) {
   // eslint-disable-next-line no-param-reassign
-  getStore().asyncReducers[name] = asyncReducer
-  getStore().replaceReducer(createReducer(getStore().asyncReducers))
+  stores().asyncReducers[name] = asyncReducer
+  stores().replaceReducer(createReducer(stores().asyncReducers))
 }

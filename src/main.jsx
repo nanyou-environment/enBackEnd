@@ -1,10 +1,8 @@
 import React from 'react' // eslint-disable-line
 import ReactDOM from 'react-dom'
-
 import { AppContainer } from 'react-hot-loader'// eslint-disable-line
 // AppContainer is a necessary wrapper component for HMR
-
-import App from './components/App'
+import root from './root'
 
 const render = (Component) => {// eslint-disable-line
   ReactDOM.render(
@@ -15,12 +13,12 @@ const render = (Component) => {// eslint-disable-line
   )
 }
 
-render(App)
+render(root)
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./components/App', () => {
-    const NextApp = require('./components/App').default
-    render(NextApp)
+  module.hot.accept('./root', () => {
+    const nextRoot = require('./root').default
+    render(nextRoot)
   })
 }

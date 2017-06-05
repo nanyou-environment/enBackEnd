@@ -1,6 +1,6 @@
-import App from './../views/App';
-import Login from './Login';
-const basePath = '/';
+import App from './../views/App'
+import Login from './Login'
+const basePath = '/'
 
 const route = [
   {
@@ -10,6 +10,6 @@ const route = [
       Login
     ]
   }
-];
+]
 
-export default route;
+export default route
