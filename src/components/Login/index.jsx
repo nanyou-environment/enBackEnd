@@ -6,7 +6,7 @@ class Login extends Component {
     const { loading } = this.props.ui
     return (
       <div>
-        <h2>login by ,laotie hehe{loading}</h2>
+        <h2>login by ,laotie {loading}</h2>
         <button onClick={this.clickTest.bind(this)}>reset</button>
       </div>
     )

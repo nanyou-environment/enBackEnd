@@ -1,7 +1,10 @@
 const webpack = require('webpack')
 const config = require('../configs')
 // const CleanWebpackPlugin = require('clean-webpack-plugin')
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin')
+var Dashboard = require('webpack-dashboard')
+var DashboardPlugin = require('webpack-dashboard/plugin')
+var dashboard = new Dashboard()
 
 module.exports = {
   'devtool': 'inline-source-map',
@@ -72,11 +75,12 @@ module.exports = {
     //   verbose: true,// Write logs to console.
     //   dry: false // Do not delete anything, good for testing.
     // }),
-    new OpenBrowserPlugin({url: 'http://localhost:8080'})
+    new OpenBrowserPlugin({url: 'http://localhost:8080'}),
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
     //     warnings: false
     //   }
     // })
+    new DashboardPlugin(dashboard.setData)
   ]
 }

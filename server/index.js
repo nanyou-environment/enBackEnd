@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(webpackDevMiddleware(compiler, {
     noInfo: true, 
     //colors: true,
+    quiet: true,
     publicPath: config.publicPath
   }))
   app.use(webpackHotMiddleware(compiler))

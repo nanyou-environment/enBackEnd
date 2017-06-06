@@ -6,10 +6,9 @@ class App extends Component {
   }
 
   render() {
-    //  通过key强制更新公用的菜单
     return (
       <div>
-        <h2>老夫子，你好👋, </h2>
+        <h2>headers</h2>
         {this.props.children}
       </div>
     )
