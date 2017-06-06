@@ -5,6 +5,9 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin')
 var Dashboard = require('webpack-dashboard')
 var DashboardPlugin = require('webpack-dashboard/plugin')
 var dashboard = new Dashboard()
+var SpritesmithPlugin = require('webpack-spritesmith')
+
+const path = require('path')
 
 module.exports = {
   'devtool': 'inline-source-map',
@@ -46,7 +49,12 @@ module.exports = {
           options: {
             formatter: require('eslint-friendly-formatter')   // 编译后错误报告格式
           }
-        }]
+        }
+        ]
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader!postcss-loader'
       }
     ]
   },
@@ -68,6 +76,22 @@ module.exports = {
     new webpack.DllReferencePlugin({
       context: config.context,
       manifest: require('../vendor-manifest.json'),
+    }),
+    new SpritesmithPlugin({
+      src: {
+        cwd: path.resolve(__dirname, '../assets/images/'),
+        glob: '*.png'
+      },
+      target: {
+        image: path.resolve(__dirname, '../assets/sprite.png'),
+        css: path.resolve(__dirname, '../assets/sprite.css')
+      },
+      apiOptions: {
+        cssImageRef: '../images/sprite.png'
+      },
+      spritesmithOptions: {
+        algorithm: 'top-down'
+      }
     }),
     //  pro env
     // new CleanWebpackPlugin(['src'], {
