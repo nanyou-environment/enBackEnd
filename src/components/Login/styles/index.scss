@@ -83,12 +83,28 @@
     border-left: 1px solid #a7a7a7;
     background-color: #aaabab;
 
+    .login-user-lock {
+      display: inline-block;
+      position: relative;
+      top: 8px;
+      left: 8px;
+      width: 23px;
+      height: 23px;
+      background-image: url('../../../../assets/svgs/lock.svg');
+      background-position: center;
+      background-size: cover;
+    }
+
     .login-user-avatar {
       display: inline-block;
+      position: relative;
+      top: 8px;
+      left: 8px;
       width: 23px;
       height: 23px;
       background-image: url('../../../../assets/svgs/login-man.svg');
       background-position: center;
+      background-size: cover;
     }
   }
   .login-user-input {

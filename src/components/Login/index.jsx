@@ -46,7 +46,7 @@ class Login extends Component {
             </li>
             <li className="login-row">
               <label className="login-user-label">
-                <span className="login-user-avatar"></span>
+                <span className="login-user-lock"></span>
               </label>
               <input placeholder="密码" className="login-user-input"></input>
             </li>
