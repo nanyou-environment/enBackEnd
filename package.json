@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.4",
     "flux-standard-action": "^1.2.0",
     "react-redux": "^5.0.5",
     "react-router": "^2.5.2",
@@ -14,6 +15,8 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "redux-ui": "^0.1.1",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.8",
     "webpack": "^2.6.1",
     "webpack-dashboard": "^0.4.0",
     "webpack-spritesmith": "^0.3.3"

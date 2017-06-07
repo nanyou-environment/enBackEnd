@@ -55,6 +55,11 @@ module.exports = {
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader!postcss-loader'
+      },
+      {
+        test: /\.png$/,
+        loader: 'url-loader',
+        query: { mimetype: 'image/png' }
       }
     ]
   },
@@ -87,7 +92,7 @@ module.exports = {
         css: path.resolve(__dirname, '../assets/sprite.css')
       },
       apiOptions: {
-        cssImageRef: '../images/sprite.png'
+        cssImageRef: './sprite.png'
       },
       spritesmithOptions: {
         algorithm: 'top-down'
