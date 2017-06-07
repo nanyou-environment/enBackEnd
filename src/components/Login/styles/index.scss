@@ -1,0 +1,108 @@
+.login {
+  width: 220px;
+  padding: 20px 31px 0 33px;
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background: rgba(0,0,0,0.5);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  .unremember-password {
+    color: #ffffff;
+    text-align: right;
+    font-size: 12px;
+    margin-bottom: 13px;
+  }
+  .login-submit-options {
+    padding: 0 0 10px;
+    zoom: 1;
+    position: relative;
+    .login-submit {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      cursor: pointer;
+      width: 219px;
+      padding: 0 20px;
+      font-size: 18px;
+      line-height: 36px;
+      height: 40px;
+      color: #fff;
+      font-weight: 400;
+      font-weight: bold\0;
+      _font-weight: bold;
+      border: 0;
+      outline: 0;
+      background: #0AE;
+      -webkit-appearance: none;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+    }
+    .login-others {
+      line-height: 17px;
+      .member-login {
+        color: #fff;
+        zoom: 1;
+        font-size: 12px;
+      }
+      .register {
+        display: inline-block;
+        float: right;
+        color: #0AE;
+        font-size: 12px;
+      }
+    }
+  }
+}
+.login-row {
+  position: relative;
+  padding: 0 0 10px;
+  zoom: 1;
+  &:after {
+    display:block;
+    clear:both;
+    height:0;
+    content: "";
+    visibility: hidden;
+    overflow:hidden;
+  }
+  .login-user-label {
+    width: 39px;
+    height: 38px;
+    display: block;
+    float: left;
+    cursor: pointer;
+    border-top: 1px solid #a7a7a7;
+    border-bottom: 1px solid #a7a7a7;
+    border-left: 1px solid #a7a7a7;
+    background-color: #aaabab;
+
+    .login-user-avatar {
+      display: inline-block;
+      width: 23px;
+      height: 23px;
+      background-image: url('../../../../assets/svgs/login-man.svg');
+      background-position: center;
+    }
+  }
+  .login-user-input {
+    float: left;
+    position: relative;
+    width: 159px;
+    padding: 9px;
+    line-height: 20px;
+    height: 20px;
+    color: #595959;
+    font-size: 12px;
+    vertical-align: middle;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid #fff;
+    outline: none;
+  }
+}

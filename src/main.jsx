@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'// eslint-disable-line
 // AppContainer is a necessary wrapper component for HMR
 import root from './root'
+import 'normalize.css'
+import './global.scss'
 
 const render = (Component) => {// eslint-disable-line
   ReactDOM.render(

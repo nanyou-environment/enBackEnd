@@ -6,6 +6,7 @@ var Dashboard = require('webpack-dashboard')
 var DashboardPlugin = require('webpack-dashboard/plugin')
 var dashboard = new Dashboard()
 var SpritesmithPlugin = require('webpack-spritesmith')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const path = require('path')
 
@@ -28,6 +29,9 @@ module.exports = {
     publicPath: config.publicPath
   },
   resolve: {
+    alias: {
+      assets: path.resolve(__dirname, '../assets')
+    },
     extensions: ['.js', '.jsx', '.scss']
   },
   module: {
@@ -53,17 +57,29 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader'
+        test: /\.(css|scss)$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            'sass-loader',
+            'postcss-loader'
+          ]
+        })
       },
       {
-        test: /\.png$/,
+        test: /\.(png|jpg|jpeg)$/,
         loader: 'url-loader',
         query: { mimetype: 'image/png' }
-      }
+      },
+      { test: /\.woff$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
+      { test: /\.ttf$/,  loader: 'url-loader?limit=10000&mimetype=application/octet-stream' },
+      { test: /\.eot$/,  loader: 'file-loader' },
+      { test: /\.svg$/,  loader: 'url-loader?limit=10000&mimetype=image/svg+xml' }
     ]
   },
   plugins: [
+    new ExtractTextPlugin('styles.css'),
     new webpack.DefinePlugin({
       'process.env': {
         PLANTFORM: JSON.stringify('web'),
@@ -110,6 +126,6 @@ module.exports = {
     //     warnings: false
     //   }
     // })
-    new DashboardPlugin(dashboard.setData)
+    // new DashboardPlugin(dashboard.setData)
   ]
 }
