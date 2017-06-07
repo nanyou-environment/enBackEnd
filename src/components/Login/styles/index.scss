@@ -42,17 +42,20 @@
       border-radius: 4px;
     }
     .login-others {
+      height: 17px;
       line-height: 17px;
       .member-login {
         color: #fff;
         zoom: 1;
         font-size: 12px;
+        vertical-align: bottom;
       }
       .register {
         display: inline-block;
         float: right;
         color: #0AE;
         font-size: 12px;
+        vertical-align: baseline;
       }
     }
   }
