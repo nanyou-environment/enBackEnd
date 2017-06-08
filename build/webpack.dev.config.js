@@ -2,11 +2,13 @@ const webpack = require('webpack')
 const config = require('../configs')
 // const CleanWebpackPlugin = require('clean-webpack-plugin')
 var OpenBrowserPlugin = require('open-browser-webpack-plugin')
-var Dashboard = require('webpack-dashboard')
-var DashboardPlugin = require('webpack-dashboard/plugin')
-var dashboard = new Dashboard()
+// var Dashboard = require('webpack-dashboard')
+// var DashboardPlugin = require('webpack-dashboard/plugin')
+// var dashboard = new Dashboard()
 var SpritesmithPlugin = require('webpack-spritesmith')
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+var svgoConfig = require('../svgo-config.json')
 
 const path = require('path')
 
@@ -75,10 +77,44 @@ module.exports = {
       { test: /\.woff$/, loader: 'url-loader?limit=10000&mimetype=application/font-woff' },
       { test: /\.ttf$/,  loader: 'url-loader?limit=10000&mimetype=application/octet-stream' },
       { test: /\.eot$/,  loader: 'file-loader' },
-      { test: /\.svg$/,  loader: 'url-loader?limit=10000&mimetype=image/svg+xml' }
+      // { test: /\.svg$/,  loader: 'url-loader?limit=10000&mimetype=image/svg+xml' }，
+      { test: /\.svg$/, loaders: [ 'svg-sprite-loader', `svgo-loader?${JSON.stringify(svgoConfig)}` ] },
+      // {
+      //   test: /\.svg$/,
+      //   include: [
+      //     path.resolve(__dirname, '../assets/svgs'),
+      //   ],
+      //   use: [
+      //     {
+      //       loader: 'svg-sprite-loader',
+      //       options: {
+      //         extract: true,
+      //         spriteFilename: 'icons-sprite.svg'
+      //       }
+      //     },
+      //     // {
+      //     //   loader: 'svgo-loader'
+      //     // }
+      //   ]
+      // }
     ]
   },
+  // svgoConfig: {
+  //   plugins: [
+  //     { removeTitle: true },
+  //     { convertColors: { shorthex: true } },
+  //     { convertPathData: true },
+  //     { cleanupAttrs: true },
+  //     { removeComments: true },
+  //     { removeDesc: true },
+  //     { removeUselessDefs: true },
+  //     { removeEmptyAttrs: true },
+  //     { removeHiddenElems: true },
+  //     { removeEmptyText: true }
+  //   ]
+  // },
   plugins: [
+    new SpriteLoaderPlugin(),
     new ExtractTextPlugin('styles.css'),
     new webpack.DefinePlugin({
       'process.env': {

@@ -18,10 +18,13 @@
     "scss-loader": "^0.0.1",
     "style-loader": "^0.18.2",
     "svg-loader": "^0.0.2",
+    "svg-sprite-loader": "^3.0.5",
+    "svgo-loader": "^1.2.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.6.1",
     "webpack-dashboard": "^0.4.0",
-    "webpack-spritesmith": "^0.3.3"
+    "webpack-spritesmith": "^0.3.3",
+    "webpack-svgstore-plugin": "^4.0.0"
   },
   "devDependencies": {
     "babel-loader": "^7.0.0",

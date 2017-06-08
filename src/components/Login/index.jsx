@@ -2,6 +2,21 @@ import React , { Component }from 'react'// eslint-disable-line
 import ui from 'redux-ui'
 require('../../../assets/sprite.css')
 require('./styles')
+import lock from '../../../assets/svgs/lock.svg'// eslint-disable-line
+import loginMan from '../../../assets/svgs/login-man.svg'// eslint-disable-line
+import analytics from '../../../assets/svgs/analytics.svg'// eslint-disable-line
+
+const _require = require.context('../../../assets/svgs', false, /\.svg$/)
+_require.keys().forEach(key => _require(key))
+
+const Icon = ({symbol, className}) => {
+  const iconClass = className ? `Icon Icon-${symbol} ${className}` : `Icon Icon-${symbol}`
+  return (
+    <svg className={iconClass} viewBox="-10,-10,30,30">
+      <use xlinkHref={`#${symbol}`} />
+    </svg>
+  )
+}
 
 // class Login extends Component {
 //   render () {
@@ -35,6 +50,7 @@ require('./styles')
 class Login extends Component {
   render () {
     return (
+      <div>
       <div className="login">
         <form>
           <ul style={{ padding: '0', margin: '0'}}>
@@ -46,7 +62,7 @@ class Login extends Component {
             </li>
             <li className="login-row">
               <label className="login-user-label">
-                <span className="login-user-lock"></span>
+                <Icon className="testing" symbol="lock" />
               </label>
               <input placeholder="密码" className="login-user-input"></input>
             </li>
@@ -62,6 +78,7 @@ class Login extends Component {
             </div>
           </ul>
         </form>
+      </div>
       </div>
     )
   }
