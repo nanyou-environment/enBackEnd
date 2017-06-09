@@ -1,13 +1,13 @@
 import Login from '../components/Login/index'
 
 const LoginRoute = {
-  path: 'login',
+  path: 'index',
   component: Login
 }
 
 const route = [
   {
-    path: '/',
+    path: '/login',
     // component: App,
     childRoutes: [
       LoginRoute

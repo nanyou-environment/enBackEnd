@@ -151,7 +151,14 @@ module.exports = {
     // })
     // new DashboardPlugin(dashboard.setData)
     new HtmlWebpackPlugin({
+      filename: 'index.html',
       template: path.resolve(__dirname ,'./templates/index.html'),
+      chunks: ['main'],//DllReferencePlugin生成的vendor.dll需要自己手动在模版中
+      publicPath: config.publicPath
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'login.html',
+      template: path.resolve(__dirname ,'./templates/login.html'),
       chunks: ['main'],//DllReferencePlugin生成的vendor.dll需要自己手动在模版中
       publicPath: config.publicPath
     }),

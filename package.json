@@ -6,6 +6,7 @@
     "sync": "rsync -r --stats dist/* ../../src/htdocs/descendants/backend/web/static/robot/"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
     "flux-standard-action": "^1.2.0",
