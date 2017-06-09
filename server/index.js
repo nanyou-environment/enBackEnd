@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === 'production') {
   //app.use(varConfig.publicPath, Express.static(varConfig.assetsPath));
 } else {
   app.use(webpackDevMiddleware(compiler, {
-    noInfo: true, 
+    noInfo: true,
     //colors: true,
     publicPath: config.publicPath
   }))
@@ -36,7 +36,7 @@ const request = require('superagent')
 app.use((req, res) => {
   if (process.env.NODE_ENV !== 'production') {
     request
-      .get(`http://localhost:8080/index.html`)
+      .get(`http://localhost:8080/static/index.html`)
       .end(function(err, _res){
         console.log(err)
         res.send(_res.text)
