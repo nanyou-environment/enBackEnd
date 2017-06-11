@@ -8,9 +8,9 @@ import { browserHistory } from 'react-router'
 
 import { AppContainer } from 'react-hot-loader'// eslint-disable-line
 // AppContainer is a necessary wrapper component for HMR
-import createReducer from './reducer'
-import stores from './stores'
-import routes from './routes'
+import createReducer from '../../reducer'
+import stores from '../../stores'
+import routes from '../../routes'
 
 const reducers = createReducer()
 const defaultState = reducers(undefined, { type: '@@null' })

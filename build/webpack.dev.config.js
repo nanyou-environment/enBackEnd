@@ -21,7 +21,7 @@ module.exports = {
       'webpack-hot-middleware/client?reload=true',
       'webpack/hot/only-dev-server',
       'react-hot-loader/patch',
-      './src/main.jsx'
+      './src/pages/login/index.jsx'
     ]
   },
   output: {
