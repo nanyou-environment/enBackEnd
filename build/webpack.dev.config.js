@@ -22,6 +22,12 @@ module.exports = {
       'webpack/hot/only-dev-server',
       'react-hot-loader/patch',
       './src/pages/login/index.jsx'
+    ],
+    index: [
+      'webpack-hot-middleware/client?reload=true',
+      'webpack/hot/only-dev-server',
+      'react-hot-loader/patch',
+      './src/pages/index/index.jsx'
     ]
   },
   output: {
@@ -153,7 +159,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname ,'./templates/index.html'),
-      chunks: ['main'],//DllReferencePlugin生成的vendor.dll需要自己手动在模版中
+      chunks: ['index'],//DllReferencePlugin生成的vendor.dll需要自己手动在模版中
       publicPath: config.publicPath
     }),
     new HtmlWebpackPlugin({

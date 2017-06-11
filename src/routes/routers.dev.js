@@ -1,4 +1,5 @@
-import Login from '../components/Login/index'
+import Login from '../components/Login'
+import Index from '../pages/index/components'
 
 // const LoginRoute = {
 //   path: 'index',
@@ -12,6 +13,10 @@ const route = [
     // childRoutes: [
     //   LoginRoute
     // ]
+  },
+  {
+    path: 'index',
+    components: Index
   }
 ]
 

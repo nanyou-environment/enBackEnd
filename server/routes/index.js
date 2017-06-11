@@ -22,7 +22,7 @@ router.get('/login', function(req, res) {
   return aliaLocalServer('login', req, res)
 })
 // define the about route
-router.get('/index/*', function(req, res) {
+router.get('/index', function(req, res) {
   return aliaLocalServer('index', req, res)
 })
 
