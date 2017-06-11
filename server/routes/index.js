@@ -18,7 +18,7 @@ router.use(function timeLog(req, res, next) {
   next()
 })
 // define the home page route
-router.get('/login/*', function(req, res) {
+router.get('/login', function(req, res) {
   return aliaLocalServer('login', req, res)
 })
 // define the about route
