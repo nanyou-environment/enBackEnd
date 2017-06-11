@@ -5,7 +5,6 @@ const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 // server.js
 const jsonServer = require('json-server')
-const server = jsonServer.create()
 const mockRouter = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
 
@@ -36,13 +35,13 @@ if (process.env.NODE_ENV === 'production') {
   }))
   app.use(webpackHotMiddleware(compiler))
 }
-app.use(middlewares)
-app.use(mockRouter)
 //  set html engine
 app.use(Express.static(path.join(__dirname, '../', config.publicPath)))
 // response index.html whatever user's router(single page)
 // render mutiple html for different routers
 app.use(routes)
+app.use(middlewares)
+app.use(mockRouter)
 
 app.listen(8080, '0.0.0.0', (error) => {
   if (error) {
