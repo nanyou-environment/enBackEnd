@@ -5,6 +5,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 const webpackConfig = require('../build')
 const config = require('../configs')
+const routes = require('./routes')
 
 // const clearAssets = require('../tools/clearAssets');
 // clearAssets(path.join(varConfig.projectPath, 'assetsMap.json'));
@@ -23,7 +24,7 @@ if (process.env.NODE_ENV === 'production') {
   //app.use(varConfig.publicPath, Express.static(varConfig.assetsPath));
 } else {
   app.use(webpackDevMiddleware(compiler, {
-    noInfo: true, 
+    noInfo: true,
     //colors: true,
     publicPath: config.publicPath
   }))
@@ -31,20 +32,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 //  set html engine
 app.use(Express.static(path.join(__dirname, '../', config.publicPath)))
-const request = require('superagent')
 // response index.html whatever user's router(single page)
-app.use((req, res) => {
-  if (process.env.NODE_ENV !== 'production') {
-    request
-      .get(`http://localhost:8080/index.html`)
-      .end(function(err, _res){
-        console.log(err)
-        res.send(_res.text)
-      })
-  } else {
-    res.sendFile(path.resolve(config.distPath, './index.html'))
-  }
-})
+// render mutiple html for different routers
+app.use(routes)
 
 app.listen(8080, '0.0.0.0', (error) => {
   if (error) {

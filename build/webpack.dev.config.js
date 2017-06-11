@@ -1,14 +1,15 @@
 const webpack = require('webpack')
 const config = require('../configs')
 // const CleanWebpackPlugin = require('clean-webpack-plugin')
-var OpenBrowserPlugin = require('open-browser-webpack-plugin')
+const OpenBrowserPlugin = require('open-browser-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 // var Dashboard = require('webpack-dashboard')
 // var DashboardPlugin = require('webpack-dashboard/plugin')
 // var dashboard = new Dashboard()
-var SpritesmithPlugin = require('webpack-spritesmith')
+const SpritesmithPlugin = require('webpack-spritesmith')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-var svgoConfig = require('../svgo-config.json')
+const svgoConfig = require('../svgo-config.json')
 
 const path = require('path')
 
@@ -99,20 +100,6 @@ module.exports = {
       // }
     ]
   },
-  // svgoConfig: {
-  //   plugins: [
-  //     { removeTitle: true },
-  //     { convertColors: { shorthex: true } },
-  //     { convertPathData: true },
-  //     { cleanupAttrs: true },
-  //     { removeComments: true },
-  //     { removeDesc: true },
-  //     { removeUselessDefs: true },
-  //     { removeEmptyAttrs: true },
-  //     { removeHiddenElems: true },
-  //     { removeEmptyText: true }
-  //   ]
-  // },
   plugins: [
     new SpriteLoaderPlugin(),
     new ExtractTextPlugin('styles.css'),
@@ -163,5 +150,17 @@ module.exports = {
     //   }
     // })
     // new DashboardPlugin(dashboard.setData)
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: path.resolve(__dirname ,'./templates/index.html'),
+      chunks: ['main'],//DllReferencePlugin生成的vendor.dll需要自己手动在模版中
+      publicPath: config.publicPath
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'login.html',
+      template: path.resolve(__dirname ,'./templates/login.html'),
+      chunks: ['main'],//DllReferencePlugin生成的vendor.dll需要自己手动在模版中
+      publicPath: config.publicPath
+    }),
   ]
 }
