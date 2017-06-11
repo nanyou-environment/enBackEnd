@@ -3,6 +3,12 @@ const path = require('path')
 const webpack = require('webpack')
 const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
+// server.js
+const jsonServer = require('json-server')
+const server = jsonServer.create()
+const mockRouter = jsonServer.router('db.json')
+const middlewares = jsonServer.defaults()
+
 const webpackConfig = require('../build')
 const config = require('../configs')
 const routes = require('./routes')
@@ -30,6 +36,8 @@ if (process.env.NODE_ENV === 'production') {
   }))
   app.use(webpackHotMiddleware(compiler))
 }
+app.use(middlewares)
+app.use(mockRouter)
 //  set html engine
 app.use(Express.static(path.join(__dirname, '../', config.publicPath)))
 // response index.html whatever user's router(single page)
