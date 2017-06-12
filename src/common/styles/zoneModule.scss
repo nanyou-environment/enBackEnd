@@ -3,6 +3,7 @@
   width: 900px;
 }
 .section-rank {
+  position: relative;
   float: right;
   width: 260px;
   overflow: hidden;
@@ -56,6 +57,7 @@
     width: 200%;
     zoom: 1;
     transition: all 0.2s linear;
+    margin-left: -100%;
     &:after {
       display: block;
       content: "";
