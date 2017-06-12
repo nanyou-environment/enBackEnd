@@ -1,0 +1,18 @@
+.goods-module {
+  float: left;
+  position: relative;
+  width: 160px;
+  height: 148px;
+  font-size: 12px;
+  overflow: hidden;
+  margin: 0 20px 20px 0;
+  .goods-pic {
+    position: relative;
+    width: 160px;
+    height: 100px;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 4px;
+  }
+}
