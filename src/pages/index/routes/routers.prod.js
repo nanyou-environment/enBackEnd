@@ -1,13 +1,13 @@
-import App from './../views/App'
-import Login from './Login'
+// import App from './../views/App'
+import Index from './Index'
 const basePath = '/'
 
 const route = [
   {
     path: basePath,
-    component: App,
+    // component: App,
     childRoutes: [
-      Login
+      Index
     ]
   }
 ]
