@@ -103,7 +103,7 @@ module.exports = {
   },
   plugins: [
     new SpriteLoaderPlugin(),
-    new ExtractTextPlugin('styles.css'),
+    new ExtractTextPlugin('[name].css'), // 单独使用link标签加载css并设置路径，相对于output配置中的publickPath
     new webpack.DefinePlugin({
       'process.env': {
         PLANTFORM: JSON.stringify('web'),
@@ -118,9 +118,14 @@ module.exports = {
         NODE_ENV: '"develop"'
       }
     }),
-    new webpack.DllReferencePlugin({
-      context: config.context,
-      manifest: require('../vendor-manifest.json'),
+    // new webpack.DllReferencePlugin({
+    //   context: config.context,
+    //   manifest: require('../vendor-manifest.json'),
+    // }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendors', // 将公共模块提取，生成名为`vendors`的chunk
+      chunks: ['index', 'login'], // 提取哪些模块共有的部分
+      minChunks: 2 // 提取至少3个模块共有的部分
     }),
     new SpritesmithPlugin({
       src: {
@@ -154,13 +159,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname ,'./templates/index.html'),
-      chunks: ['index'],//DllReferencePlugin生成的vendor.dll需要自己手动在模版中
+      chunks: ['vendors', 'index'],//DllReferencePlugin生成的vendor.dll需要自己手动在模版中
       publicPath: config.publicPath
     }),
     new HtmlWebpackPlugin({
       filename: 'login.html',
       template: path.resolve(__dirname ,'./templates/login.html'),
-      chunks: ['main'],//DllReferencePlugin生成的vendor.dll需要自己手动在模版中
+      chunks: ['vendors', 'main'],//DllReferencePlugin生成的vendor.dll需要自己手动在模版中
       publicPath: config.publicPath
     }),
   ]
