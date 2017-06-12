@@ -1,16 +1,13 @@
 import React , { Component }from 'react'// eslint-disable-line
-
+import Header from 'common/Header'
 
 class Index extends Component {
   render () {
     return (
-      <div>fhasflhalfaf</div>
+      <div>
+        <Header></Header>
+      </div>
     )
-  }
-  clickTest() {
-    this.props.updateUI({
-      loading: false
-    })
   }
 }
 

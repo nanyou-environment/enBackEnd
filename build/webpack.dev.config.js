@@ -37,12 +37,7 @@ module.exports = {
     pathinfo: true,
     publicPath: config.publicPath
   },
-  resolve: {
-    alias: {
-      assets: path.resolve(__dirname, '../assets')
-    },
-    extensions: ['.js', '.jsx', '.scss']
-  },
+  resolve: config.resolve,
   module: {
     rules: [
       {

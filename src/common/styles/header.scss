@@ -1,0 +1,18 @@
+.headers {
+  height: 42px;
+  line-height: 42px;
+  background-image: url('http://i0.hdslb.com/bfs/archive/4b867b407a643e5265e30e783fe2a77e0f269c91.png@.webp');
+  .header-ul {
+    margin: 0;
+    padding: 0;
+    .header-item {
+      display: inline-block;
+      list-style: none;
+      padding: 0 20px;
+      color: #ffffff;
+      &:last-child {
+        float: right;
+      }
+    }
+  }
+}
