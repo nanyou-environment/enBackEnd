@@ -3,6 +3,71 @@
   width: 900px;
 }
 .section-rank {
-  float: left;
-  width: 216px;
+  float: right;
+  width: 260px;
+  overflow: hidden;
+  .rank-header {
+    height: 24px;
+    line-height: 24px;
+    h3 {
+      float: left;
+      font-size: 18px;
+      font-weight: 400;
+    }
+    .rank-tab {
+      float: left;
+      margin-left: 20px;
+      overflow: hidden;
+      .rank-tab-item {
+        float: left;
+        position: relative;
+        height: 20px;
+        line-height: 20px;
+        cursor: pointer;
+        padding: 1px 0 2px;
+        border-bottom: 1px solid transparent;
+        margin-left: 12px;
+        transition: .2s;
+        transition-property: border,color;
+        &:before {
+          content: "";
+          display: none;
+          position: absolute;
+          left: 50%;
+          margin-left: -3px;
+          bottom: 0;
+          width: 0;
+          height: 0;
+          border: 3px dashed #00a1d6;
+          border-bottom-style: solid;
+          border-top: 0;
+          border-left-color: transparent;
+          border-right-color: transparent;
+        }
+      }
+      .on {
+        background-color: transparent;
+        border-color: #00a1d6;
+        color: #00a1d6;
+      }
+    }
+  }
+  .rank-list-main {
+    width: 200%;
+    zoom: 1;
+    transition: all 0.2s linear;
+    &:after {
+      display: block;
+      content: "";
+      clear: both;
+      visibility: none;
+    }
+    .rank-list {
+      float: left;
+      width: 50%;
+      .rank-item {
+        height: 30px;
+      }
+    }
+  }
 }
