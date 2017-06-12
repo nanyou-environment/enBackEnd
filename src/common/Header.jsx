@@ -6,10 +6,10 @@ class Header extends Component {
     return (
       <header className="headers">
         <ul className="header-ul">
-          <li className="header-item">首页</li>
-          <li className="header-item">逛逛</li>
-          <li className="header-item">周边</li>
-          <li className="header-item">个人中心</li>
+          <li className="header-item"><a href="">首页</a></li>
+          <li className="header-item"><a href="">逛逛</a></li>
+          <li className="header-item"><a href="">周边</a></li>
+          <li className="header-item"><a href="">个人中心</a></li>
         </ul>
       </header>
     )

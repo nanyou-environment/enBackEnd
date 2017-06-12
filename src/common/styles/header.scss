@@ -9,10 +9,14 @@
       display: inline-block;
       list-style: none;
       padding: 0 20px;
-      color: #ffffff;
+      font-size: 12px;
       &:last-child {
         float: right;
       }
+    }
+    a {
+      color: #ffffff;
+      text-decoration-line: none;
     }
   }
 }
