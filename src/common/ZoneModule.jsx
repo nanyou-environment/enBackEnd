@@ -1,6 +1,8 @@
 import React from 'react'
+import ui from 'redux-ui'
 import Goods from './Goods'
 import './styles/zoneModule.scss'
+
 
 class ZoneModule extends React.Component {
   constructor() {
@@ -13,14 +15,14 @@ class ZoneModule extends React.Component {
   }
   changeTab(status) {
     return () => {
-      this.setState({
+      this.props.updateUI({
         tag: status
       })
     }
   }
   render () {
     const { modules } = this.state
-    // const tagOn = this.state.tag
+    const { tag } = this.props.ui
     return (
       <div className="zone-module">
         <div className="new-modules">
@@ -32,15 +34,16 @@ class ZoneModule extends React.Component {
             })
           }
         </div>
+        <div>{this.props.testDta}</div>
         <section className="section-rank">
           <header className="rank-header">
             <h3>排行</h3>
             <div className="rank-tab">
-              <span className="rank-tab-item" onClick={this.changeTab(0)}>全部</span>
-              <span className="rank-tab-item " onClick={this.changeTab(1)}>原创</span>
+              <span className={`rank-tab-item ${tag === 0 ? 'on' : ''}`} onClick={this.changeTab(0)}>全部</span>
+              <span className={`rank-tab-item ${tag === 1 ? 'on' : ''}`} onClick={this.changeTab(1)}>原创</span>
             </div>
           </header>
-          <div className="rank-list-main">
+          <div className={`rank-list-main ${tag === 0 ? '' : 'slide-left'}`}>
             <ul className="rank-list hot-list">
               <li className="rank-item">fafa</li>
               <li className="rank-item">fafa</li>
@@ -66,4 +69,16 @@ class ZoneModule extends React.Component {
   }
 }
 
-export default ZoneModule
+ZoneModule.propTypes = {
+  tag: Number,
+  modules: Array
+}
+
+const ZoneModuleWithUi = ui({
+  key: 'ZoneModule',
+  state: {
+    tag: 0
+  }
+})(ZoneModule)
+
+export default ZoneModuleWithUi

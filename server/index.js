@@ -5,7 +5,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware')
 const webpackHotMiddleware = require('webpack-hot-middleware')
 // server.js
 const jsonServer = require('json-server')
-const mockRouter = jsonServer.router('db.json')
+const mockRouter = jsonServer.router(path.resolve(__dirname, '../mocks/index.json'))
 const middlewares = jsonServer.defaults()
 
 const webpackConfig = require('../build')
