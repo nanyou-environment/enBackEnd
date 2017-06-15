@@ -68,8 +68,8 @@ class ZoneModule extends React.Component {
 }
 
 ZoneModule.propTypes = {
-  tag: Number,
-  modules: Array
+  tag: React.PropTypes.number,
+  modules: React.PropTypes.array
 }
 
 const ZoneModuleWithUi = ui({
