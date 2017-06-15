@@ -1,5 +1,6 @@
 /* eslint-disable */
 //_params格式化data=>formdata
+const znzteachUrl = '/'
 function _params(data,key) {
     var params = '';
     key=key||'';

@@ -1,34 +1,58 @@
 import React , { Component }from 'react'// eslint-disable-line
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import ZoneModule from 'common/ZoneModule'
 // import PureRenderMixin from 'react-addons-pure-render-mixin'
+import { getTags } from '../../../action/tag'
 import './styles/main.scss'
 
 class Main extends Component {
-  constructor() {
-    super()
+  constructor(props, context) {
+    super(props, context)
     this.state = {
       flag: 0,
       test: 'hello world'
     }
   }
-  shouldComponentUpdate() {
-    return false
+  componentWillMount() {
+    this.loadData.bind(this)()
   }
-  componentWillUpdate() {
+  componentWillReceiveProps() {
+    debugger //eslint-disable-line
   }
-  changeState () {
-    this.setState({test: 'haha'})
+  // shouldComponentUpdate() {
+  //   return false
+  // }
+  loadData() {
+    const actions = this.props.actions
+    actions.getTags()
   }
   render () {
     const { flag } = this.state
     return (
       <div className="index-wrapper">
         <div>{flag}</div>
-        <ZoneModule testDta={this.state.test}></ZoneModule>
-        <button onClick={this.changeState.bind(this)}>dianwo</button>
+        <ZoneModule modules={this.props.tags}></ZoneModule>
       </div>
     )
   }
 }
 
-export default Main
+function mapStateToProps(state) {
+  return {
+    tags: state.tags.tags
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({
+      getTags
+    }, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Main)

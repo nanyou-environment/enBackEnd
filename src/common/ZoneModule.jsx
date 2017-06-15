@@ -8,7 +8,6 @@ class ZoneModule extends React.Component {
   constructor() {
     super()
     this.state = {
-      modules: [1,2,3,4,5],
       tag: 0
     }
     this.changeTab = this.changeTab.bind(this)// eslint-disable-line
@@ -21,7 +20,7 @@ class ZoneModule extends React.Component {
     }
   }
   render () {
-    const { modules } = this.state
+    const { modules } = this.props
     const { tag } = this.props.ui
     return (
       <div className="zone-module">
@@ -34,7 +33,6 @@ class ZoneModule extends React.Component {
             })
           }
         </div>
-        <div>{this.props.testDta}</div>
         <section className="section-rank">
           <header className="rank-header">
             <h3>排行</h3>
