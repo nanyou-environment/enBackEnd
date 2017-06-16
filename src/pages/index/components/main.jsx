@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React , { Component }from 'react'// eslint-disable-line
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -56,3 +57,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Main)
+/* eslint-disable */

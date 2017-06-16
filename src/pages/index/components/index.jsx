@@ -1,17 +1,23 @@
-import React , { Component }from 'react'// eslint-disable-line
+import React , { PureComponent }from 'react'// eslint-disable-line
 import Header from 'common/Header'
 // import Banner from 'common/Banner'
 import Main from './main'
 
-class Index extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <Main />
-      </div>
-    )
-  }
+// export default class Index extends PureComponent {
+//   render() {
+//     return (
+//       <div>
+//         <Header />
+//         <Main />
+//       </div>
+//     )
+//   }
+// }
+export default function Index() {
+  return (
+    <div>
+      <Header />
+      <Main />
+    </div>
+  )
 }
-
-export default Index

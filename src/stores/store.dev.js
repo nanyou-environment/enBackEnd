@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { browserHistory } from 'react-router'
 import thunk from 'redux-thunk'
-import api from '../middleware/api'
 import { routerMiddleware } from 'react-router-redux'
+import api from '../middleware/api'
 import createReducer from '../reducer'
 
 const router = routerMiddleware(browserHistory)

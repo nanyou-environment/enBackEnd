@@ -1,10 +1,9 @@
 import React from 'react' // eslint-disable-line
 import ReactDOM from 'react-dom'// eslint-disable-line
 import { Provider } from 'react-redux'// eslint-disable-line
-import { Router } from 'react-router'// eslint-disable-line
+import { Router, browserHistory } from 'react-router'// eslint-disable-line
 import { syncHistoryWithStore } from 'react-router-redux'
 import isEqual from 'lodash/isEqual'
-import { browserHistory } from 'react-router'
 import createReducer from '../../reducer'
 import stores from '../../stores'
 import routes from './routes'

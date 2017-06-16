@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React , { Component }from 'react'// eslint-disable-line
 import ui from 'redux-ui'
 import lock from '../../../assets/svgs/lock.svg'// eslint-disable-line
@@ -97,3 +98,4 @@ const loginContainer = ui({
 })(Login)
 
 export default loginContainer
+/* eslint-disable */

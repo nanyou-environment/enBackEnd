@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import ui from 'redux-ui'
 import PropTypes from 'prop-types'
@@ -77,3 +78,4 @@ const ZoneModuleWithUi = ui({
 })(ZoneModule)
 
 export default ZoneModuleWithUi
+/* eslint-disable */
