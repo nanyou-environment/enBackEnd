@@ -26,10 +26,8 @@ class Main extends Component {
     actions.getTags()
   }
   render () {
-    const { flag } = this.state
     return (
       <div className="index-wrapper">
-        <div>{flag}</div>
         <ZoneModule modules={this.props.tags}></ZoneModule>
       </div>
     )
