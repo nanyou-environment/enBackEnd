@@ -29,7 +29,7 @@ class ZoneModule extends React.Component {
           {
             modules.map((item, index) => {
               return (
-                <Goods key={`goods${item.id}${item.scope}${index}`}></Goods>
+                <Goods data={item} key={`goods${item.id}${item.scope}${index}`}></Goods>
               )
             })
           }
@@ -69,8 +69,8 @@ class ZoneModule extends React.Component {
 }
 
 ZoneModule.propTypes = {
-  tag: PropTypes.number,
-  modules: PropTypes.array
+  ui: PropTypes.object.isRequired,
+  modules: PropTypes.array.isRequired
 }
 
 const ZoneModuleWithUi = ui({

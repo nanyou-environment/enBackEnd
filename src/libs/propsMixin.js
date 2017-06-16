@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
 
-function getPrototype(type, isRequire) {
+function getPrototype(type, isRequired) {
   switch(type) {
   case 'number':
-    if (isRequire) return PropTypes.number.isRequire
+    if (isRequired) return PropTypes.number.isRequired
     return PropTypes.number
   case 'array':
-    if (isRequire) return PropTypes.array.isRequire
+    if (isRequired) return PropTypes.array.isRequired
     return PropTypes.array
   default:
-    if (isRequire) return PropTypes.string.isRequire
+    if (isRequired) return PropTypes.string.isRequired
     return PropTypes.string
   }
 }
@@ -17,8 +17,8 @@ export function props(arr) {
   const propstypes = {}
   for (let i = 0; i< arr.length; i++) {
     let value
-    if (arr[i].isRequire) {
-      value = getPrototype(arr[i].type, arr[i].isRequire)
+    if (arr[i].isRequired) {
+      value = getPrototype(arr[i].type, arr[i].isRequired)
     } else {
       value = getPrototype(arr[i.type])
     }
