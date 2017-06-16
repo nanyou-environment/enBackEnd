@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react'
 import ui from 'redux-ui'
 import PropTypes from 'prop-types'
@@ -27,7 +26,7 @@ class ZoneModule extends React.Component {
         <div className="new-modules">
           {
             modules.map((item, index) => (
-              <Goods data={item} key={`goods${item.id}${item.scope}${index}`} />
+              <Goods data={item} key={`goods${item.id}${item.scope}`} />
               ))
           }
         </div>
@@ -35,15 +34,15 @@ class ZoneModule extends React.Component {
           <header className="rank-header">
             <h3>排行</h3>
             <div className="rank-tab">
-              <span className={`rank-tab-item ${tag === 0 ? 'on' : ''}`} onClick={this.changeTab(0)}>全部</span>
-              <span className={`rank-tab-item ${tag === 1 ? 'on' : ''}`} onClick={this.changeTab(1)}>原创</span>
+              <span tabIndex="0" role="menuitem" className={`rank-tab-item ${tag === 0 ? 'on' : ''}`} onClick={this.changeTab(0)}>全部</span>
+              <span tabIndex="-1" role="button" className={`rank-tab-item ${tag === 1 ? 'on' : ''}`} onClick={this.changeTab(1)}>原创</span>
             </div>
           </header>
           <div className={`rank-list-main ${tag === 0 ? '' : 'slide-left'}`}>
             <ul className="rank-list hot-list">
               {
                 news.map((item, index) => (
-                  <NewsItem key={index + 1} feed={item} index={index} className="rank-item">fafa</NewsItem>
+                  <NewsItem key={`${item.id}`} feed={item} index={index} className="rank-item">fafa</NewsItem>
                   ))
               }
               <div style={{ textAlign: 'center', lineHeight: '30px', fontSize: '14px', backgroundColor: '#e5e9ef', marginTop: '10px', borderRadius: '3px' }}>加载更多...</div>
@@ -51,7 +50,7 @@ class ZoneModule extends React.Component {
             <ul className="rank-list origin-list">
               {
                 news.map((item, index) => (
-                  <NewsItem key={index + 1} feed={item} index={index} className="rank-item">fafa</NewsItem>
+                  <NewsItem key={`${item.id}`} feed={item} index={index} className="rank-item">fafa</NewsItem>
                   ))
               }
               <div style={{ textAlign: 'center', lineHeight: '30px', fontSize: '14px', backgroundColor: '#e5e9ef', marginTop: '10px', borderRadius: '3px' }}>加载更多...</div>
@@ -64,9 +63,9 @@ class ZoneModule extends React.Component {
 }
 
 ZoneModule.propTypes = {
-  ui: PropTypes.object.isRequired,
-  modules: PropTypes.array.isRequired,
-  news: PropTypes.array.isRequired,
+  ui: PropTypes.shape.isRequired,
+  modules: PropTypes.arrayOf.isRequired,
+  news: PropTypes.arrayOf.isRequired,
   updateUI: PropTypes.func.isRequired
 }
 
@@ -78,4 +77,3 @@ const ZoneModuleWithUi = ui({
 })(ZoneModule)
 
 export default ZoneModuleWithUi
-/* eslint-disable */
