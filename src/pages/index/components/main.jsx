@@ -19,7 +19,6 @@ class Main extends Component {
     this.loadData.bind(this)()
   }
   shouldComponentUpdate(nextProps) {
-    debugger//eslint-disable-line
     window.console.log(nextProps)
     return true
   }
