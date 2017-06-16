@@ -15,7 +15,7 @@ function checkPendingActionType(action) {
 }
 
 export default function promiseMiddleware({ dispatch }) {
-  return next => action => {
+  return next => (action) => {
     if (!isFSA(action)) {
       return isPromise(action)
         ? action.then(dispatch)
@@ -48,7 +48,7 @@ export default function promiseMiddleware({ dispatch }) {
 
     return isPromise(action.payload)
       ? action.payload.then(
-          result => {
+          (result) => {
             if (result.code !== 200) {
               return next(actionWith({ payload: result, fail: true }, pendingMeta))
             }
@@ -56,7 +56,7 @@ export default function promiseMiddleware({ dispatch }) {
             return next(actionWith({ payload: result }, pendingMeta))
             // dispatch({ ...action, payload: result }),
           },
-          error => {
+          (error) => {
             dispatch({ ...action, payload: error, error: true })
             return Promise.reject(error)
           }

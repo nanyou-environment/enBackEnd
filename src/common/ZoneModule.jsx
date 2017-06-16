@@ -25,11 +25,9 @@ class ZoneModule extends React.Component {
       <div className="zone-module">
         <div className="new-modules">
           {
-            modules.map((item, index) => {
-              return (
-                <Goods data={item} key={`goods${item.id}${item.scope}${index}`}></Goods>
-              )
-            })
+            modules.map((item, index) => (
+              <Goods data={item} key={`goods${item.id}${item.scope}${index}`} />
+              ))
           }
         </div>
         <section className="section-rank">
@@ -43,23 +41,19 @@ class ZoneModule extends React.Component {
           <div className={`rank-list-main ${tag === 0 ? '' : 'slide-left'}`}>
             <ul className="rank-list hot-list">
               {
-                news.map((item, index) => {
-                  return (
-                    <NewsItem key={index+1} feed={item} index={index} className="rank-item">fafa</NewsItem>
-                  )
-                })
+                news.map((item, index) => (
+                  <NewsItem key={index + 1} feed={item} index={index} className="rank-item">fafa</NewsItem>
+                  ))
               }
-              <div style={{ textAlign: 'center', lineHeight: '30px', fontSize: '14px', backgroundColor: '#e5e9ef', marginTop: '10px', borderRadius: '3px'}}>加载更多...</div>
+              <div style={{ textAlign: 'center', lineHeight: '30px', fontSize: '14px', backgroundColor: '#e5e9ef', marginTop: '10px', borderRadius: '3px' }}>加载更多...</div>
             </ul>
             <ul className="rank-list origin-list">
               {
-                news.map((item, index) => {
-                  return (
-                    <NewsItem key={index+1} feed={item} index={index} className="rank-item">fafa</NewsItem>
-                  )
-                })
+                news.map((item, index) => (
+                  <NewsItem key={index + 1} feed={item} index={index} className="rank-item">fafa</NewsItem>
+                  ))
               }
-              <div style={{ textAlign: 'center', lineHeight: '30px', fontSize: '14px', backgroundColor: '#e5e9ef', marginTop: '10px',borderRadius: '3px'}}>加载更多...</div>
+              <div style={{ textAlign: 'center', lineHeight: '30px', fontSize: '14px', backgroundColor: '#e5e9ef', marginTop: '10px', borderRadius: '3px' }}>加载更多...</div>
             </ul>
           </div>
         </section>

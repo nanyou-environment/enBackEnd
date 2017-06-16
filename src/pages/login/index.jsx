@@ -10,7 +10,7 @@ import '../../global.scss'
 const render = (Component) => {// eslint-disable-line
   ReactDOM.render(
     <AppContainer>
-      <Component/>
+      <Component />
     </AppContainer>,
     document.getElementById('app')
   )

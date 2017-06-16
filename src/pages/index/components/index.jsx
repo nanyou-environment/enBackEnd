@@ -4,11 +4,11 @@ import Header from 'common/Header'
 import Main from './main'
 
 class Index extends Component {
-  render () {
+  render() {
     return (
       <div>
-        <Header></Header>
-        <Main></Main>
+        <Header />
+        <Main />
       </div>
     )
   }

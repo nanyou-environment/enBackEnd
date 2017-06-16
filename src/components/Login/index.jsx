@@ -9,7 +9,7 @@ require('./styles')
 const _require = require.context('../../../assets/svgs', false, /\.svg$/)
 _require.keys().forEach(key => _require(key))
 
-const Icon = ({symbol, className}) => {
+const Icon = ({ symbol, className }) => {
   const iconClass = className ? `Icon Icon-${symbol} ${className}` : `Icon Icon-${symbol}`
   return (
     <svg className={iconClass} viewBox="-10,-10,30,30">
@@ -48,37 +48,37 @@ const Icon = ({symbol, className}) => {
 
 // export default loginContainer
 class Login extends Component {
-  render () {
+  render() {
     return (
       <div>
-      <div className="login">
-        <form>
-          <ul style={{ padding: '0', margin: '0'}}>
-            <li className="login-row">
-              <label className="login-user-label">
-                <span className="login-user-avatar"></span>
-              </label>
-              <input placeholder="邮箱/手机号" className="login-user-input"></input>
-            </li>
-            <li className="login-row">
-              <label className="login-user-label">
-                <Icon className="testing" symbol="lock" />
-              </label>
-              <input placeholder="密码" className="login-user-input"></input>
-            </li>
-            <div className="unremember-password">
-              <a>忘记登录密码？</a>
-            </div>
-            <div className="login-submit-options">
-              <input type="submit" value="登陆" className="login-submit"/>
-              <p className='login-others'>
-                <a className="member-login">淘宝会员登陆</a>
-                <a className="register">免费注册</a>
-              </p>
-            </div>
-          </ul>
-        </form>
-      </div>
+        <div className="login">
+          <form>
+            <ul style={{ padding: '0', margin: '0' }}>
+              <li className="login-row">
+                <label className="login-user-label">
+                  <span className="login-user-avatar" />
+                </label>
+                <input placeholder="邮箱/手机号" className="login-user-input" />
+              </li>
+              <li className="login-row">
+                <label className="login-user-label">
+                  <Icon className="testing" symbol="lock" />
+                </label>
+                <input placeholder="密码" className="login-user-input" />
+              </li>
+              <div className="unremember-password">
+                <a>忘记登录密码？</a>
+              </div>
+              <div className="login-submit-options">
+                <input type="submit" value="登陆" className="login-submit" />
+                <p className="login-others">
+                  <a className="member-login">淘宝会员登陆</a>
+                  <a className="register">免费注册</a>
+                </p>
+              </div>
+            </ul>
+          </form>
+        </div>
       </div>
     )
   }

@@ -7,19 +7,19 @@ const newsInitState = []
 
 function tags(state = tagInitState, action) {
   switch (action.type) {
-  case ActionTypes.GET_TAGS:
-    return action.payload
-  default:
-    return state
+    case ActionTypes.GET_TAGS:
+      return action.payload
+    default:
+      return state
   }
 }
 
 function news(state = newsInitState, action) {
   switch (action.type) {
-  case ActionTypes.GET_NEWS:
-    return action.payload
-  default:
-    return state
+    case ActionTypes.GET_NEWS:
+      return action.payload
+    default:
+      return state
   }
 }
 

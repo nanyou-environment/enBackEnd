@@ -17,7 +17,7 @@ const store = stores(defaultState)
 // 缓存 location 对象，防止store监听事件触发更新，导致路由内替换 reducer 差生无线循环
 const selectLocationStateCreator = () => {
   let prev = null
-  return state => {
+  return (state) => {
     const next = state.routing
     if (isEqual(prev, next)) {
       return prev

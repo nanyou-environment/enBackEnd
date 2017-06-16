@@ -2,7 +2,7 @@ import React , { Component }from 'react'// eslint-disable-line
 import './styles/header.scss'
 
 class Header extends Component {
-  render () {
+  render() {
     return (
       <header className="headers">
         <ul className="header-ul">

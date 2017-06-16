@@ -60,7 +60,8 @@ module.exports = {
         use: [{
           loader: 'eslint-loader',
           options: {
-            formatter: require('eslint-friendly-formatter')   // 编译后错误报告格式
+            formatter: require('eslint-friendly-formatter'),   // 编译后错误报告格式
+            fix: true,
           }
         }
         ]
