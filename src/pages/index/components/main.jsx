@@ -1,7 +1,7 @@
-/* eslint-disable */
 import React , { Component }from 'react'// eslint-disable-line
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 // import { connect } from 'modules/react-redux/src'
 import ZoneModule from 'common/ZoneModule'
 // import PureRenderMixin from 'react-addons-pure-render-mixin'
@@ -37,6 +37,12 @@ class Main extends Component {
   }
 }
 
+Main.propTypes = {
+  actions: PropTypes.func.isRequired,
+  news: PropTypes.shape.isRequired,
+  tags: PropTypes.number.isRequired
+}
+
 function mapStateToProps(state) {
   return {
     tags: state.indexPage.tags,
@@ -57,4 +63,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Main)
-/* eslint-disable */
