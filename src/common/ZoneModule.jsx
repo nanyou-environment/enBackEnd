@@ -1,5 +1,6 @@
 import React from 'react'
 import ui from 'redux-ui'
+import PropTypes from 'prop-types'
 import Goods from './Goods'
 import './styles/zoneModule.scss'
 
@@ -26,9 +27,9 @@ class ZoneModule extends React.Component {
       <div className="zone-module">
         <div className="new-modules">
           {
-            modules.map(() => {
+            modules.map((item, index) => {
               return (
-                <Goods></Goods>
+                <Goods key={`goods${item.id}${item.scope}${index}`}></Goods>
               )
             })
           }
@@ -68,8 +69,8 @@ class ZoneModule extends React.Component {
 }
 
 ZoneModule.propTypes = {
-  tag: React.PropTypes.number,
-  modules: React.PropTypes.array
+  tag: PropTypes.number,
+  modules: PropTypes.array
 }
 
 const ZoneModuleWithUi = ui({

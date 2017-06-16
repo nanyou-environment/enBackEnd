@@ -8,7 +8,8 @@ module.exports = {
   resolve: {
     alias: {
       common: path.resolve(__dirname, '../src/common'),
-      assets: path.resolve(__dirname, '../assets')
+      assets: path.resolve(__dirname, '../assets'),
+      modules: path.resolve(__dirname, '../modules')
     },
     extensions: ['.js', '.jsx', '.scss']
   }

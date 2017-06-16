@@ -7,10 +7,9 @@ const initialState = {
 
 export default (state = initialState, action) => {
   if (action.type === ActionTypes.GET_TAGS) {
-    const newState = Object.assign(state, {
+    return Object.assign(state, {
       tags: action.payload
     })
-    return newState
   }
   return state
 }

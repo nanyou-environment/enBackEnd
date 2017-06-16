@@ -1,6 +1,7 @@
 import React , { Component }from 'react'// eslint-disable-line
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+// import { connect } from 'modules/react-redux/src'
 import ZoneModule from 'common/ZoneModule'
 // import PureRenderMixin from 'react-addons-pure-render-mixin'
 import { getTags } from '../../../action/tag'
@@ -16,9 +17,6 @@ class Main extends Component {
   }
   componentWillMount() {
     this.loadData.bind(this)()
-  }
-  componentWillReceiveProps() {
-    debugger //eslint-disable-line
   }
   // shouldComponentUpdate() {
   //   return false

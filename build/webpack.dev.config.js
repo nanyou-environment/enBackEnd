@@ -42,16 +42,21 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
+        exclude: [
+          /node_modules/,
+        ],
         loaders: [
           'babel-loader',
-          'eslint-loader'
         ]
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         enforce: 'pre',  // 在babel-loader对源码进行编译前进行lint的检查
         include: config.babelInclude,  // src文件夹下的文件需要被lint
+        exclude: [
+          /node_modules/,
+          path.resolve(__dirname, '../modules')
+        ],
         use: [{
           loader: 'eslint-loader',
           options: {
