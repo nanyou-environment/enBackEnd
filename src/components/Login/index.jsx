@@ -1,10 +1,10 @@
 import React , { Component }from 'react'// eslint-disable-line
 import ui from 'redux-ui'
-require('../../../assets/sprite.css')
-require('./styles')
 import lock from '../../../assets/svgs/lock.svg'// eslint-disable-line
 import loginMan from '../../../assets/svgs/login-man.svg'// eslint-disable-line
 import analytics from '../../../assets/svgs/analytics.svg'// eslint-disable-line
+require('../../../assets/sprite.css')
+require('./styles')
 
 const _require = require.context('../../../assets/svgs', false, /\.svg$/)
 _require.keys().forEach(key => _require(key))

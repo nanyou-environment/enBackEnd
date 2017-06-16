@@ -1,18 +1,15 @@
-import React , { Component }from 'react'// eslint-disable-line
+import React , { PureComponent }from 'react'// eslint-disable-line
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './styles/newsItem.scss'
 
-class NewsItem extends Component {
-  constructor(props, context) {
-    super(props, context)
-  }
+class NewsItem extends PureComponent {
   render() {
-    const feed = this.props.data
+    const feed = this.props.feed
     const index = this.props.index
     const numberClass = classNames({
       'news-number': feed.img === null,
-      'number': feed.img !== null
+      number: feed.img !== null
     })
     const titleClass = classNames({
       title1: feed.img === null,
@@ -23,7 +20,7 @@ class NewsItem extends Component {
         <span className={numberClass}>{index}</span>
         {
           feed.img !== null &&
-            <img className="img" src={feed.img} />
+            <img className="img" src={feed.img} alt="bi" />
         }
         <span className={titleClass}>{feed.title}</span>
       </div>
@@ -31,8 +28,16 @@ class NewsItem extends Component {
   }
 }
 
+NewsItem.defaultProps = {
+  feed: null,
+  index: -1
+}
+
 NewsItem.propTypes = {
-  data: PropTypes.object.isRequired
+  feed: PropTypes.shape({
+    img: PropTypes.string
+  }),
+  index: PropTypes.number.isRequired
 }
 
 export default NewsItem

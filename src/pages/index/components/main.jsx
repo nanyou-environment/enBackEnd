@@ -27,10 +27,10 @@ class Main extends Component {
     actions.getTags()
     actions.getNews()
   }
-  render () {
+  render() {
     return (
       <div className="index-wrapper">
-        <ZoneModule modules={this.props.tags} news={this.props.news}></ZoneModule>
+        <ZoneModule modules={this.props.tags} news={this.props.news} />
       </div>
     )
   }

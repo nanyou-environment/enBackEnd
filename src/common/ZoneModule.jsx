@@ -18,7 +18,7 @@ class ZoneModule extends React.Component {
       })
     }
   }
-  render () {
+  render() {
     const { modules, news } = this.props
     const { tag } = this.props.ui
     return (
@@ -45,7 +45,7 @@ class ZoneModule extends React.Component {
               {
                 news.map((item, index) => {
                   return (
-                    <NewsItem key={index+1} data={item} index={index} className="rank-item">fafa</NewsItem>
+                    <NewsItem key={index+1} feed={item} index={index} className="rank-item">fafa</NewsItem>
                   )
                 })
               }
@@ -55,7 +55,7 @@ class ZoneModule extends React.Component {
               {
                 news.map((item, index) => {
                   return (
-                    <NewsItem key={index+1} data={item} index={index} className="rank-item">fafa</NewsItem>
+                    <NewsItem key={index+1} feed={item} index={index} className="rank-item">fafa</NewsItem>
                   )
                 })
               }
@@ -71,7 +71,8 @@ class ZoneModule extends React.Component {
 ZoneModule.propTypes = {
   ui: PropTypes.object.isRequired,
   modules: PropTypes.array.isRequired,
-  news: PropTypes.array.isRequired
+  news: PropTypes.array.isRequired,
+  updateUI: PropTypes.func.isRequired
 }
 
 const ZoneModuleWithUi = ui({

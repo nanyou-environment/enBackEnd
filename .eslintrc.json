@@ -1,40 +1,46 @@
 {
-    "extends": "airbnb",
-    "env": {
-        "browser": true,
-        "commonjs": true,
-        "es6": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        "react/display-name": 0,
-        "react/jsx-uses-vars": 2,
-        "indent": [
-            "error",
-            2
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ],
-        "no-trailing-spaces": 2
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "settings" : {
+    "import/resolver": {
+      "webpack": {
+        "config": "./build/webpack.dev.config.js"
+      }
     }
+  },
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "plugins": [ "import" ],
+  "settings": {
+    "import/resolver": "webpack"
+  },
+  "globals": {
+    "__basePath__": true,
+    "__roomInfo__": true,
+    "__userInfo__": true,
+    "__ResourcePublicPath__": true
+  },
+  "rules": {
+    "import/extensions": ["off", "never"],
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-filename-extension": 0,
+    "import/no-extraneous-dependencies": 0,
+    "max-len": 0,
+    "no-console": 0,
+    "global-require": 0,
+    "comma-dangle": 0,
+    "import/no-unresolved": 0,
+    "no-underscore-dangle": 0,
+    "semi": [
+      "error",
+      "never"
+    ],
+    "no-unused-vars": ["error", { "args": "none" }]
+   }
 }

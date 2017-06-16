@@ -1,5 +1,5 @@
 import * as ActionTypes from '../constants/indexPage'
-import { createAction } from './createAction'
+import createAction from './createAction'
 import Promise from '../libs/webApi'
 
 function fetchTags() {
