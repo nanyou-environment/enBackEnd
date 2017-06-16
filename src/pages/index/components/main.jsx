@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 // import { connect } from 'modules/react-redux/src'
 import ZoneModule from 'common/ZoneModule'
 // import PureRenderMixin from 'react-addons-pure-render-mixin'
-import { getTags } from '../../../action/tag'
+import { getTags, getNews } from '../../../action/indexPageActon'
 import './styles/main.scss'
 
 class Main extends Component {
@@ -18,17 +18,20 @@ class Main extends Component {
   componentWillMount() {
     this.loadData.bind(this)()
   }
-  // shouldComponentUpdate() {
-  //   return false
-  // }
+  shouldComponentUpdate(nextProps) {
+    debugger//eslint-disable-line
+    window.console.log(nextProps)
+    return true
+  }
   loadData() {
     const actions = this.props.actions
     actions.getTags()
+    actions.getNews()
   }
   render () {
     return (
       <div className="index-wrapper">
-        <ZoneModule modules={this.props.tags}></ZoneModule>
+        <ZoneModule modules={this.props.tags} news={this.props.news}></ZoneModule>
       </div>
     )
   }
@@ -36,14 +39,16 @@ class Main extends Component {
 
 function mapStateToProps(state) {
   return {
-    tags: state.tags.tags
+    tags: state.indexPage.tags,
+    news: state.indexPage.news
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators({
-      getTags
+      getTags,
+      getNews
     }, dispatch)
   }
 }

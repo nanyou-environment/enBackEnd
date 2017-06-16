@@ -2,15 +2,13 @@ import React from 'react'
 import ui from 'redux-ui'
 import PropTypes from 'prop-types'
 import Goods from './Goods'
+import NewsItem from './newsItem'
 import './styles/zoneModule.scss'
 
 
 class ZoneModule extends React.Component {
   constructor() {
     super()
-    this.state = {
-      tag: 0
-    }
     this.changeTab = this.changeTab.bind(this)// eslint-disable-line
   }
   changeTab(status) {
@@ -21,7 +19,7 @@ class ZoneModule extends React.Component {
     }
   }
   render () {
-    const { modules } = this.props
+    const { modules, news } = this.props
     const { tag } = this.props.ui
     return (
       <div className="zone-module">
@@ -44,22 +42,22 @@ class ZoneModule extends React.Component {
           </header>
           <div className={`rank-list-main ${tag === 0 ? '' : 'slide-left'}`}>
             <ul className="rank-list hot-list">
-              <li className="rank-item">fafa</li>
-              <li className="rank-item">fafa</li>
-              <li className="rank-item">fa</li>
-              <li className="rank-item">fafa</li>
-              <li className="rank-item">fa</li>
-              <li className="rank-item">fafa</li>
-              <li className="rank-item">fafa</li>
+              {
+                news.map((item, index) => {
+                  return (
+                    <NewsItem key={index+1} data={item} index={index} className="rank-item">fafa</NewsItem>
+                  )
+                })
+              }
             </ul>
             <ul className="rank-list origin-list">
-              <li className="rank-item">rfafa</li>
-              <li className="rank-item">rfafa</li>
-              <li className="rank-item">fafa</li>
-              <li className="rank-item">fafa</li>
-              <li className="rank-item">fafa</li>
-              <li className="rank-item">fafa</li>
-              <li className="rank-item">fafa</li>
+              {
+                news.map((item, index) => {
+                  return (
+                    <NewsItem key={index+1} data={item} index={index} className="rank-item">fafa</NewsItem>
+                  )
+                })
+              }
             </ul>
           </div>
         </section>
@@ -70,7 +68,8 @@ class ZoneModule extends React.Component {
 
 ZoneModule.propTypes = {
   ui: PropTypes.object.isRequired,
-  modules: PropTypes.array.isRequired
+  modules: PropTypes.array.isRequired,
+  news: PropTypes.array.isRequired
 }
 
 const ZoneModuleWithUi = ui({
