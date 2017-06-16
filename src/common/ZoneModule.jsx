@@ -49,6 +49,7 @@ class ZoneModule extends React.Component {
                   )
                 })
               }
+              <div style={{ textAlign: 'center', lineHeight: '30px', fontSize: '14px', backgroundColor: '#e5e9ef', marginTop: '10px', borderRadius: '3px'}}>加载更多...</div>
             </ul>
             <ul className="rank-list origin-list">
               {
@@ -58,6 +59,7 @@ class ZoneModule extends React.Component {
                   )
                 })
               }
+              <div style={{ textAlign: 'center', lineHeight: '30px', fontSize: '14px', backgroundColor: '#e5e9ef', marginTop: '10px',borderRadius: '3px'}}>加载更多...</div>
             </ul>
           </div>
         </section>
