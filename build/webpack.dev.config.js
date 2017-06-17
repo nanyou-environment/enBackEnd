@@ -18,15 +18,15 @@ module.exports = {
   context: config.context,
   entry: {
     main: [
+      'react-hot-loader/patch',
       'webpack-hot-middleware/client?reload=true',
       'webpack/hot/only-dev-server',
-      'react-hot-loader/patch',
       './src/pages/login/index.jsx'
     ],
     index: [
+      'react-hot-loader/patch',
       'webpack-hot-middleware/client?reload=true',
       'webpack/hot/only-dev-server',
-      'react-hot-loader/patch',
       './src/pages/index/index.jsx'
     ]
   },
@@ -68,14 +68,14 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        loader: ExtractTextPlugin.extract({
+        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             'css-loader',
             'sass-loader',
-            'postcss-loader'
+            'postcss-loader',
           ]
-        })
+        })),
       },
       {
         test: /\.(png|jpg|jpeg)$/,
