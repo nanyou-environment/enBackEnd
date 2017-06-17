@@ -13,6 +13,7 @@ class ZoneModule extends React.Component {
   }
   changeTab(status) {
     return () => {
+      console.log(21212)
       this.props.updateUI({
         tag: status
       })
@@ -34,8 +35,8 @@ class ZoneModule extends React.Component {
           <header className="rank-header">
             <h3>排行</h3>
             <div className="rank-tab">
-              <span tabIndex="0" role="menuitem" className={`rank-tab-item ${tag === 0 ? 'on' : ''}`} onClick={this.changeTab(0)}>全部</span>
-              <span tabIndex="-1" role="button" className={`rank-tab-item ${tag === 1 ? 'on' : ''}`} onClick={this.changeTab(1)}>原创</span>
+              <span role="presentation" className={`rank-tab-item ${tag === 0 ? 'on' : ''}`} onMouseEnter={this.changeTab(0)}>全部</span>
+              <span role="presentation" className={`rank-tab-item ${tag === 1 ? 'on' : ''}`} onMouseEnter={this.changeTab(1)}>原创</span>
             </div>
           </header>
           <div className={`rank-list-main ${tag === 0 ? '' : 'slide-left'}`}>
