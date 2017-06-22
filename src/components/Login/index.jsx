@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React , { Component }from 'react'// eslint-disable-line
-import ui from 'redux-ui'
+// import ui from 'redux-ui'
+import ui from 'modules/redux-ui/src'
 import lock from '../../../assets/svgs/lock.svg'// eslint-disable-line
 import loginMan from '../../../assets/svgs/login-man.svg'// eslint-disable-line
 import analytics from '../../../assets/svgs/analytics.svg'// eslint-disable-line
@@ -93,6 +94,7 @@ class Login extends Component {
 const loginContainer = ui({
   key: 'logins',
   state: {
+    uiPath: 'dshdsodoeuow',
     loading: true
   }
 })(Login)
